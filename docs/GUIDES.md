@@ -42,7 +42,7 @@ Once the wallet is successfully connected, you will see a corresponding address 
 
 **Step 4.** Route the assets
 
-[Walkthrough](./assets/main_flow.mov)
+[Walkthrough](./assets/main_flow.mp4)
 
 *Step 3.1.* Proceed to https://testnet.adar.com/#/route-assets
 
@@ -50,15 +50,23 @@ Once the wallet is successfully connected, you will see a corresponding address 
 
 *Step 3.2.* Upload a routing configuration (`.csv` file). On this page you will be able to find the template. Once you upload the file, ADAR will perform it's avlidation
 
-![](./assets/routing_info.png)
+![](./assets/csv_validation.png)
 
 Step 3.2.1. If there are issues with the configuration, ADAR will indicate them in the consice form so that you can edit a `csv` file and consequently re-upload it
+
+![](./assets/issue_found.png)
+
+![](./assets/issue_highlighted.png)
+
+![](./assets/issue_resolved.png)
 
 *Step 3.3.* Select an input asset
 
 ![](./assets/input_asset_selection.png)
 
-As part of the current version, ADAR can use only one source asset and any number of target assets for batch transfer of funds. This means that if the user specified `PSWAP` to receive, and `XOR` was selected as the source asset, then `XOR` will first be automatically converted to `PSWAP` and then sent.
+As part of the current version, ADAR can use only one source asset and any number of target assets for batch transfer of funds. This means that if the user specified `PSWAP` to receive, and `XOR` was selected as the source asset, then `XOR` will first be converted to `PSWAP` and then sent.
+
+![](./assets/swap.png)
 
 *Step 3.4.* Confirm the transaction
 
@@ -73,6 +81,8 @@ In case when before transfering the assets a conversion will have to be done, wi
 *Step 3.6.* Wait until the transaction is included in the blockchain. Once the transactions are executed successfully, ADAR will display the corresponding statuses on a web page
 
 ![](./assets/routing_result.png)
+
+![](./assets/routing_result_end.png)
 
 Step 3.6.1. If there were problems with batch transfers, you will see the corresponding errors and you can immediately try to make the transfer again within the UI
 
