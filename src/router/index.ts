@@ -12,6 +12,9 @@ import { adarLazyView } from '@/modules/ADAR/router';
 import { DemeterPageNames } from '@/modules/demeterFarming/consts';
 import { demeterLazyView } from '@/modules/demeterFarming/router';
 
+import * as Sentry from '@sentry/vue';
+import { BrowserTracing } from '@sentry/tracing';
+
 Vue.use(VueRouter);
 
 const WALLET_DEFAULT_ROUTE = WALLET_CONSTS.RouteNames.Wallet;
@@ -288,6 +291,26 @@ router.beforeEach((to, from, next) => {
     return;
   }
   setRoute(current, false);
+});
+
+Sentry.init({
+  Vue,
+  dsn: 'https://71e73a867f6f4e0ca045bdb27347c525@sentry.soramitsu.co.jp/7',
+  integrations: [
+    new BrowserTracing({
+      routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+      // I don't know the exact regexes that we should add here.
+      // As the documentation mention:
+      // If your frontend is making requests to a different domain, you'll need to add it there to propagate
+      // the sentry-trace and baggage headers to the backend services, which is required to link transactions
+      // together as part of a single trace.
+      tracingOrigins: ['localhost', 'adar.com', /^\//],
+    }),
+  ],
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
 });
 
 export { lazyComponent, lazyView, goTo };
