@@ -48,7 +48,7 @@ Once the wallet is successfully connected, you will see a corresponding address 
 
 ![](./assets/main_wallet_connected.png)
 
-*Step 3.2.* Upload a routing configuration (`.csv` file). On this page you will be able to find the template. Once you upload the file, ADAR will validate it.
+*Step 3.2.* Upload a routing configuration (`.csv` file). On this page you will be able to find the template. Once you upload the file, ADAR will validate it. We have provided an [example template](./assets/template.csv). You are welcome to modify this template or create your own. However, please note that our application does not support multiple transactions to the same wallet in the template. Please ensure that you do not use one wallet twice, as we expect salaries to be distributed as usual.
 
 ![](./assets/csv_validation.png)
 
